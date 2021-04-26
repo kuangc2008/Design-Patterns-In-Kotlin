@@ -14,7 +14,9 @@ class OrderPayCommand(private val id: Long) : OrderCommand {
 }
 
 class CommandProcessor {
-
+    /**
+     * 添加多个命定
+     */
     private val queue = ArrayList<OrderCommand>()
 
     fun addToQueue(orderCommand: OrderCommand): CommandProcessor =

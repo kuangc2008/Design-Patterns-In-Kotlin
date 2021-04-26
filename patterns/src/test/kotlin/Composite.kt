@@ -1,6 +1,9 @@
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
+/**
+ * 组合模式；
+ */
 open class Equipment(
     open val price: Int,
     val name: String
@@ -11,10 +14,12 @@ open class Composite(name: String) : Equipment(0, name) {
     private val equipments = ArrayList<Equipment>()
 
     override val price: Int
+        // price之和
         get() = equipments.map { it.price }.sum()
 
 
     fun add(equipment: Equipment) =
+            // 遍历的写法
         apply { equipments.add(equipment) }
 }
 

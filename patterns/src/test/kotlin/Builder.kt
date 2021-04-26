@@ -18,6 +18,7 @@ class Dialog {
 // Builder
 class DialogBuilder() {
 
+    // 类名+.的语法  将来直接再里面初始化
     constructor(init: DialogBuilder.() -> Unit) : this() {
         init()
     }

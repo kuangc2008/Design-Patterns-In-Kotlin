@@ -15,7 +15,7 @@ abstract class PlantFactory {
 
     companion object {
         inline fun <reified T : Plant> createFactory(): PlantFactory =
-            when (T::class) {
+            when (T::class) {  //inline函数中，可以使用reified，这样T可以使用class
                 OrangePlant::class -> OrangeFactory()
                 ApplePlant::class -> AppleFactory()
                 else -> throw IllegalArgumentException()
@@ -36,7 +36,7 @@ class AbstractFactoryTest {
 
     @Test
     fun `Abstract Factory`() {
-        val plantFactory = PlantFactory.createFactory<OrangePlant>()
+        val plantFactory = PlantFactory.createFactory<OrangePlant>()   // 使用的话，将它添加到泛型即可
         val plant = plantFactory.makePlant()
         println("Created plant: $plant")
 

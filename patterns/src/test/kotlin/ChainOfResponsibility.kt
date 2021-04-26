@@ -7,6 +7,9 @@ interface HeadersChain {
 
 class AuthenticationHeader(val token: String?, var next: HeadersChain? = null) : HeadersChain {
 
+    /**
+     * 自己处理，再交给next处理在返回    ?:
+     */
     override fun addHeader(inputHeader: String): String {
         token ?: throw IllegalStateException("Token should be not null")
         return inputHeader + "Authorization: Bearer $token\n"

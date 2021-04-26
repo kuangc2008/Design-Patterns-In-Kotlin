@@ -3,11 +3,13 @@ import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 
 interface Temperature {
+    // 接口变量
     var temperature: Double
 }
 
 class CelsiusTemperature(override var temperature: Double) : Temperature
 
+// 适配同样的接口;  自身没有保存变量
 class FahrenheitTemperature(private var celsiusTemperature: CelsiusTemperature) : Temperature {
 
     override var temperature: Double
